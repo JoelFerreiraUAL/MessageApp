@@ -1,13 +1,14 @@
-﻿using MessageApp.Api.Domain.Common.Models;
+﻿
 using MessageApp.Api.Domain.Common.ValueObjects;
 
 namespace MessageApp.Api.Domain.Aggregates.ConversationAggregate.ValueObjects
 {
-    public sealed class ConversationId:BaseEntity<int>
+    public sealed class ConversationId
     {
-        private ConversationId(int id)
+        public int Value { get; private set; }
+        private ConversationId(int value)
         {
-            Id = id;
+            Value = value;
 
         }
         public static ConversationId Create(int id)

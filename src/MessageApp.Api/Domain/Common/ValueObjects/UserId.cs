@@ -1,12 +1,13 @@
-﻿using MessageApp.Api.Domain.Common.Models;
+﻿
 
 namespace MessageApp.Api.Domain.Common.ValueObjects
 {
-    public sealed class UserId:BaseEntity<int>
+    public sealed class UserId
     {
-        private UserId(int id)
+        public int Value { get; private set; }
+        private UserId(int value)
         {
-            Id= id;
+            Value = Value;
 
         }
         public static UserId Create( int id)
