@@ -4,11 +4,12 @@ using MessageApp.Api.Domain.Common.ValueObjects;
 
 namespace MessageApp.Api.Domain.Aggregates.ConversationAggregate.Entities
 {
-    public sealed class Message: BaseAudit
+    public sealed class Message: IBaseAudit
     {
         public MessageId Id { get; private set; }
         public string Content { get; private set; }
         public UserId UserId { get; private set; }
+        public DateTime CreatedDate { get; set; }
         private Message(string content, UserId userId)
         {
             Content = content;

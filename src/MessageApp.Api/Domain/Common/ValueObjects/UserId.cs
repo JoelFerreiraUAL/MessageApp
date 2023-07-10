@@ -7,7 +7,7 @@ namespace MessageApp.Api.Domain.Common.ValueObjects
         public int Value { get; private set; }
         private UserId(int value)
         {
-            Value = Value;
+            Value = value;
 
         }
         public static UserId Create( int id)

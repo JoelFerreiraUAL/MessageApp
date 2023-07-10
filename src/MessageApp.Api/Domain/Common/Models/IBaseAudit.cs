@@ -1,6 +1,6 @@
 ﻿namespace MessageApp.Api.Domain.Common.Models
 {
-    public class BaseAudit
+    public interface IBaseAudit
     {
         public DateTime CreatedDate { get;set; }
     }

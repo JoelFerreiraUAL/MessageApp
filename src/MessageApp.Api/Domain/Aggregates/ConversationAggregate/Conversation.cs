@@ -5,7 +5,7 @@ using MessageApp.Api.Domain.Common.ValueObjects;
 
 namespace MessageApp.Api.Domain.Aggregates.ConversationAggregate
 {
-    public sealed class Conversation:BaseAudit
+    public sealed class Conversation: IBaseAudit
     {
         public ConversationId Id { get; private set; }
         private List<Message> _messages = new();
@@ -14,13 +14,16 @@ namespace MessageApp.Api.Domain.Aggregates.ConversationAggregate
         public IReadOnlyList<Message> Messages => _messages.AsReadOnly();
         public IReadOnlyList<UserId> UsersIds=> _userIds.AsReadOnly();
 
-        private Conversation( string groupName)
+        public DateTime CreatedDate { get; set; }
+
+        private Conversation( string groupName,List<Message>? messages=null)
         {
             GroupName = groupName;
+            _messages = messages ?? new();
         }
-        public static  Conversation Create( string groupName)
+        public static  Conversation Create( string groupName, List<Message>? messages = null)
         {
-            return new Conversation(groupName);
+            return new Conversation(groupName,messages);
 
         }
         private Conversation()
