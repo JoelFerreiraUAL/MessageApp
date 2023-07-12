@@ -1,4 +1,4 @@
-using MessageApp.Api.Infrastructure;
+using MessageApp.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

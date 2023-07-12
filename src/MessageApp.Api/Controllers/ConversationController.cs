@@ -1,8 +1,4 @@
-﻿using MessageApp.Api.Domain.Aggregates.ConversationAggregate;
-using MessageApp.Api.Domain.Aggregates.ConversationAggregate.Entities;
-using MessageApp.Api.Domain.Common.ValueObjects;
-using MessageApp.Api.Infrastructure.Persistence;
-using MessageApp.Api.Requests.Conversation;
+﻿using MessageApp.Contracts.Requests.Conversation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,22 +9,20 @@ namespace MessageApp.Api.Controllers
     [ApiController]
     public class ConversationController : ControllerBase
     {
-        private readonly MessageAppDbContext _context;
-        public ConversationController(MessageAppDbContext context)
+        public ConversationController()
         {
-            _context = context;
         }
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _context.Conversations.AsNoTracking().ToListAsync());
+            return Ok();
         }
         [HttpPost]
         public async Task<IActionResult> CreateConversation(CreateConversationRequest createConversationRequest)
         {
-            var conversation = Conversation.Create(createConversationRequest.GroupName, createConversationRequest.Messages.ConvertAll(c => Message.Create(c.Content, UserId.Create(c.userId))));
-            await _context.Conversations.AddAsync(conversation);
-            await _context.SaveChangesAsync();
+            //var conversation = Conversation.Create(createConversationRequest.GroupName, createConversationRequest.Messages.ConvertAll(c => Message.Create(c.Content, UserId.Create(c.userId))));
+            //await _context.Conversations.AddAsync(conversation);
+            //await _context.SaveChangesAsync();
             return Ok();
         }
     }
