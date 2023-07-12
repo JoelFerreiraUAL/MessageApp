@@ -1,5 +1,5 @@
-﻿using MessageApp.Application.Common.Repositories;
-using MessageApp.Domain.Aggregates.ConversationAggregate;
+﻿using MessageApp.Domain.Aggregates.ConversationAggregate;
+using MessageApp.Domain.Aggregates.ConversationAggregate.Repository;
 using MessageApp.Domain.Aggregates.ConversationAggregate.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;

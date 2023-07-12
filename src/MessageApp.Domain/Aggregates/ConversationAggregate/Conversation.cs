@@ -17,13 +17,14 @@ namespace MessageApp.Domain.Aggregates.ConversationAggregate
 
         public DateTime CreatedDate { get; set; }
 
-        private Conversation(string groupName)
+        private Conversation(string groupName, List<UserId>? userIds = null)
         {
             GroupName = groupName;
+            _userIds = userIds ?? new();
         }
-        public static Conversation Create(string groupName)
+        public static Conversation Create(string groupName,List<UserId>? userIds=null)
         {
-            return new Conversation(groupName);
+            return new Conversation(groupName, userIds);
 
         }
         private Conversation()

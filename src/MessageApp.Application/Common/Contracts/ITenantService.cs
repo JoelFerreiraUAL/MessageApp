@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MessageApp.Application.Common.Models.Conversation
+namespace MessageApp.Application.Common.Contracts
 {
-    public class ConversationModel
+    public interface ITenantService
     {
+        int GetTenantId();
     }
 }
