@@ -13,17 +13,16 @@ export class LoginComponent {
  constructor(private authService:AuthService) {
  }
  ngOnInit(){
-
+  this.prepareForm();
  }
  prepareForm(){
   this.loginForm = new FormGroup({
-    email: new FormControl([
+    email: new FormControl("",[
       Validators.required,
       Validators.email,
     ]),
-    password:  new FormControl([
+    password:  new FormControl("",[
       Validators.required,
-      Validators.email,
       Validators.minLength(5)
     ]),
   });

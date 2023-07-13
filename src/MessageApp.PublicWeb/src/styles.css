@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100% !important; background-color:	#F8F8F8; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  }
+mat-form-field {
+  width: 100%;
+  background-color: "none";
+}
+.mat-mdc-form-field-focus-overlay {
+  background-color: white;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: white
+}
