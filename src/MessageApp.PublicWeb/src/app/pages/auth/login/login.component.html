@@ -12,7 +12,7 @@
             </div>
               <div class="row mt-3">
                 <div class="col">
-                  <form [formGroup]="loginForm">
+                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                       <div class="row mt-1 d-flex justify-content-center">
                         <div class="col col-sm-10">
                           <mat-label>Email</mat-label>
@@ -25,13 +25,13 @@
                         <div class="col col-sm-10">
                           <mat-label>Password</mat-label>
                           <mat-form-field appearance="outline" >
-                            <input matInput type="password" formControlName="password"  >
+                            <input autocomplete="on" matInput type="password" formControlName="password"  >
                           </mat-form-field>
                         </div>
                       </div>
                       <div class="row d-flex justify-content-center">
                         <div class="col col-sm-10">
-                          <button class="w-100" mat-raised-button color="primary">SIGN UP</button>
+                          <button type="submit" class="w-100" mat-raised-button color="primary">SIGN UP</button>
                         </div>
                       </div>
 

@@ -27,4 +27,7 @@ export class LoginComponent {
     ]),
   });
  }
+ onSubmit(){
+  const {email,password}=this.loginForm.value;
+ }
 }
