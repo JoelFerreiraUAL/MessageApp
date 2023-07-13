@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MessageApp.Application.Common.Contracts
 {
-    public interface ITenantService
+    public interface ITokenClaimService
     {
-        int GetTenantId();
-        string GetTenantEmail();
+        string GetToken(string email, int userId, string role, List<string>? currentClaims = null);
     }
 }

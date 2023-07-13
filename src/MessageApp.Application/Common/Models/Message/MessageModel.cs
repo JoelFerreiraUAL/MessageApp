@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MessageApp.Application.Common.Models
+namespace MessageApp.Application.Common.Models.Message
 {
     public record MessageModel
     (

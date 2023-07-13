@@ -7,8 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Conversation\Command\Update\" />
-    <Folder Include="Features\Conversation\Queries\" />
+    <Compile Remove="Features\Command\**" />
+    <EmbeddedResource Remove="Features\Command\**" />
+    <None Remove="Features\Command\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Mapping\" />
+    <Folder Include="Features\Conversations\Queries\GetConversationsByUserIdQuery\" />
+    <Folder Include="Features\Authentication\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.3.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.0" />
+    <PackageReference Include="MediatR" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
