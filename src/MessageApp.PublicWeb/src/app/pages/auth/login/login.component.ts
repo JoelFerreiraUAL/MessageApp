@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/common/services/auth/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -7,4 +8,24 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+ public loginForm: FormGroup;
+
+ constructor(private authService:AuthService) {
+ }
+ ngOnInit(){
+
+ }
+ prepareForm(){
+  this.loginForm = new FormGroup({
+    email: new FormControl([
+      Validators.required,
+      Validators.email,
+    ]),
+    password:  new FormControl([
+      Validators.required,
+      Validators.email,
+      Validators.minLength(5)
+    ]),
+  });
+ }
 }
