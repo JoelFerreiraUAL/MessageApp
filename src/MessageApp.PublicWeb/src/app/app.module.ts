@@ -19,9 +19,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoadingSpinnerComponent } from './common/components/loading-spinner/loading-spinner.component';
-import { ConversationComponent } from './pages/conversation/conversation.component';
-import { MessageComponent } from './pages/conversation/components/message/message.component';
+import { MessageComponent } from './common/components/message/message.component';
 import { JwtInterceptor } from './common/interceptors/jwt/jwt.interceptor';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { JwtInterceptor } from './common/interceptors/jwt/jwt.interceptor';
     RegisterComponent,
     LoginComponent,
     LoadingSpinnerComponent,
-    ConversationComponent,
     MessageComponent,
+    HomeComponent,
 
   ],
   imports: [

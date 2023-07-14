@@ -6,10 +6,14 @@ import { AuthLayoutComponent } from './common/layout/auth-layout/auth-layout.com
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { CanActiveGuard } from './common/guards/can-active.guard';
+import { HomeComponent } from './pages/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', component: MainLayoutComponent,canActivate:[CanActiveGuard] },
+  { path: '', component: MainLayoutComponent,canActivate:[CanActiveGuard], children:[
+    {path: '', component: HomeComponent, },
+
+  ] },
   { path: 'auth', component: AuthLayoutComponent, children:[
 
     {path: 'login', component: LoginComponent, },
