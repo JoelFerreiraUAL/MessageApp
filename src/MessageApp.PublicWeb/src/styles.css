@@ -12,3 +12,6 @@ mat-form-field {
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: white
 }
+.white-spinner circle{
+  stroke:white !important;
+}

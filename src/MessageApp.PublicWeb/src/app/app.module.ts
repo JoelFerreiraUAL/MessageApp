@@ -8,7 +8,7 @@ import { AuthLayoutComponent } from './common/layout/auth-layout/auth-layout.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -17,6 +17,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { LoadingSpinnerComponent } from './common/components/loading-spinner/loading-spinner.component';
+import { ConversationComponent } from './pages/conversation/conversation.component';
+import { MessageComponent } from './pages/conversation/components/message/message.component';
+import { JwtInterceptor } from './common/interceptors/jwt/jwt.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +30,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     AuthLayoutComponent,
     RegisterComponent,
     LoginComponent,
+    LoadingSpinnerComponent,
+    ConversationComponent,
+    MessageComponent,
 
   ],
   imports: [
@@ -42,10 +51,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
+    MatProgressSpinnerModule,
     FormsModule,
 
   ],
-  providers: [],
+  providers: [   { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/common/services/auth/auth.service';
 @Component({
   selector: 'app-login',
@@ -9,8 +10,8 @@ import { AuthService } from 'src/app/common/services/auth/auth.service';
 export class LoginComponent {
 
  public loginForm: FormGroup;
-
- constructor(private authService:AuthService) {
+ public isLoading=false;
+ constructor(private authService:AuthService,private router: Router) {
  }
  ngOnInit(){
   this.prepareForm();
@@ -28,6 +29,12 @@ export class LoginComponent {
   });
  }
  onSubmit(){
+  if(!this.loginForm.valid)return
+  this.isLoading=true;
   const {email,password}=this.loginForm.value;
+  this.authService.login(email,password).subscribe((result:any)=>{
+    this.isLoading=false;
+    this.router.navigate(["/"]);
+  })
  }
 }

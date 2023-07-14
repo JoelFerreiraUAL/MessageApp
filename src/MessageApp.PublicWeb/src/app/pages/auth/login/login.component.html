@@ -31,7 +31,15 @@
                       </div>
                       <div class="row d-flex justify-content-center">
                         <div class="col col-sm-10">
-                          <button type="submit" class="w-100" mat-raised-button color="primary">SIGN UP</button>
+                          <button type="submit" class="w-100" mat-raised-button color="primary">
+                            <div *ngIf="!isLoading; else spinner">
+                              SIGN UP
+                          </div>
+
+                          </button>
+                          <ng-template #spinner>
+                              <app-loading-spinner [size]="30" ></app-loading-spinner>
+                        </ng-template>
                         </div>
                       </div>
 
